@@ -1,4 +1,4 @@
-title Embedded Field / Drop-in Integration
+title Embedded Field / Drop-in Flow
 
 participant Merchant Front End as MF
 participant AWX Components as AC

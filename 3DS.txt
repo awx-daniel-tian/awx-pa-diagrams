@@ -19,8 +19,7 @@ note left of MB: If response is AUTHORIZED, \ntransaction has completed.\nElse, 
 note left of MB: Listen for User Info Input.
 note left of MF: Display iFrame
 MF -> IS: Authenticate Shopper with Issuing Bank
-IS -> MF: Respond with Transaction ID
-MF -> AWX: Submit Transaction ID through Airwallex
+IS -> MB: Respond with Transaction ID
+MB -> AWX: Submit Transaction ID through Airwallex
 AWX -> MB: Respond with status
 note left of MB: If authorized, \nshopper has completed payment.
-

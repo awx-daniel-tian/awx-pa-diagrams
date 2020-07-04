@@ -1,4 +1,4 @@
-title Multi-Currency Pricing
+title Multi-Currency Pricing Flow
 
 participant Merchant Front End as MF
 participant Merchant Back End as MB
@@ -9,7 +9,7 @@ AWX -> MB: Responds with Exchange Rate
 MB -> MF: Display the Collected Rate to your Shoppers
 note left of MF: Note the following steps are \nidentical to Payment Flow \n(3DS is not displayed here, \nbut can also be added accordingly).
 MF -> MB: Shopper Proceeds to Pay
-
+MB -> AWX: Submit a Payment Intent
 AWX -> MB: Responds with Client Secret & Payment Methods
 MB -> AWX: Confirm Payment Intent
 AWX -> MB: Responds with whether Payment Suceeded or Not

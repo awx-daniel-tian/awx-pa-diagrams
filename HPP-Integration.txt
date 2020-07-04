@@ -1,0 +1,17 @@
+title Hosted Payment Page Flow
+
+participant Merchant Front End as MF
+participant AWX HPP as AH
+participant Merchant Back End as MB
+participant Airwallex as AWX
+
+note right of MB: Configure Notification Endpoint
+MF -> MB: Shopper Proceeds to Pay
+MB -> AWX: Submit a Payment Intent
+AWX -> MB: Responds with Client Secret
+MB -> MF: Forwards Client Secret
+note left of MF: Initialize AWX JS Context, \nand redirect to checkout
+MF -> AH: Redirects Shopper to HPP
+AH -> AWX: Submits Shopper Payment Details
+AH -> MF: Redirects to Merchant Success or Fail Page
+AWX -> MB: Responds with Payment Status via Notification
