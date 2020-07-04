@@ -1,0 +1,22 @@
+title Embedded Field / Drop-in Integration
+
+participant Merchant Front End as MF
+participant AWX Components as AC
+participant Merchant Back End as MB
+participant Airwallex as AWX
+
+MF -> MB: Shopper Proceeds to Pay
+MB -> AWX: Submit a Payment Intent
+AWX -> MB: Responds with Client Secret & Payment Methods
+note left of MF: Initialize AWX Components, \nand Customize Acccordingly
+note left of MF: Place AWX Components \non Your Checkout Page
+note left of MF: Listen for payment status\n from AWX Components
+AC -> AWX: Shopper Enters and Submit User Payment Details
+AWX -> AC: Responds with whether Payment Succeeded or Not
+AC -> MF: React Accordingly to Payment Success
+
+
+
+
+
+

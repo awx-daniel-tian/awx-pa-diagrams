@@ -1,0 +1,26 @@
+title 3DS Payment Flow
+
+participant Merchant Front End as MF
+participant Merchant Back End as MB
+participant Airwallex as AWX
+participant Issuer as IS
+
+MF -> MB: Shopper Proceeds to Pay
+MB -> AWX: Submit a Payment Intent
+AWX -> MB: Responds with Client Secret
+MF -> MB: Shopper Checksout
+MB -> AWX: Submit Confirm Payment Intent
+AWX -> MB: Return Device Data Collection Response
+MB -> MF: Return Information from Next Action Group
+note left of MF: Collect Device Information\n through iFrame
+MF -> IS: Submit Device Information to Issuer
+IS -> MB: Respond with response code
+note left of MB: If response is AUTHORIZED, \ntransaction has completed.\nElse, continue to Challenge Flow below.
+note left of MB: Listen for User Info Input.
+note left of MF: Display iFrame
+MF -> IS: Authenticate Shopper with Issuing Bank
+IS -> MF: Respond with Transaction ID
+MF -> AWX: Submit Transaction ID through Airwallex
+AWX -> MB: Respond with status
+note left of MB: If authorized, \nshopper has completed payment.
+

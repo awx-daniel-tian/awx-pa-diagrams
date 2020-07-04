@@ -1,0 +1,1 @@
+# AWX Payment Acceptance Diagrams

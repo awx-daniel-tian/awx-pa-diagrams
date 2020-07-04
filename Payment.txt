@@ -1,0 +1,12 @@
+title Payment without 3DS Flow
+
+participant Merchant Front End as MF
+participant Merchant Back End as MB
+participant Airwallex as AWX
+
+MF -> MB: Shopper Proceeds to Pay
+MB -> AWX: Submit a Payment Intent
+AWX -> MB: Responds with Client Secret & Payment Methods
+MB -> AWX: Confirm Payment Intent
+AWX -> MB: Responds with whether Payment Suceeded or Not
+note left of MB: If payment suceeded, \nfunds will be reserved, \nand you may ship your goods.
